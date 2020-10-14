@@ -17,9 +17,7 @@ class IpAddressService
 
   def validate_array
     ip_valid = false
-    @params[:data].each do |ip|
-      ip_valid = is_valid?(ip)
-    end
+    @params[:data].each { |ip| ip_valid = is_valid?(ip) }
     return @params[:data].join(", ") if ip_valid
     "Invalid Address"
   end
